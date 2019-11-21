@@ -27,9 +27,7 @@ body,html {
   background-color: $lightGray;
 }
 
-body {
-  padding-top: 30px;
-}
+
 
 h1,h2,h3,h4,h5,h6,body {
 line-height: 1.57;
@@ -86,77 +84,95 @@ a {
   }
 }
 
-h1,h2,h3,h4,h5,h6 {
+
+
+
+.title{
+padding-top: 10px;
+text-align:center;
+font-weight: bold;
+
+
+border-bottom: 2px solid #dddddd;
+  &__main{
+    font-size:30px;
+  }
+  &__sub{
+    font-size:20px;
+  }
 }
 
 
 
-h1.title{
-  font-size: 30px;
-  padding-left:30px;
-}
-
-
-.title {
-  padding-left:300px;
+.nav{ 
+  text-align:center;
+  position: center;
   font-weight: bold;
+  border-bottom: 2px solid #dddddd;
   display:flex;
-}
-
-a.post{
-  margin-right:20px;
-}
-
-a{
-  margin-right:20px;
-}
-
-.title--big {
-  font-size: 1.5em;
-  font-weight: bold;
-  i {
-    font-style: italic;
-    font-size: 1.8em;
+  justify-content: center;
+  &__term{
+  margin-right: 20px;
+  margin-left:20px; 
   }
 }
 
 
-header.header{
-  @include basePadding;
-  border-bottom: 1px solid $gray;
-  background-color: #fff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  height: 62px;
-  div.header__bar{
-    position: relative;
-    h1.grid-6 {
-      font-size: 20px;
-      line-height: 41px;
-      float: left;
-      a {
-        display: block;
-      }
-    }
-    div.grid-6 {
-      float: right;
-      text-align: right;
-      a.post {
-        @extend .btn;
-        width: 120px;
-        display: inline-left;
-        margin-left: 10px;
-      }
-    }
-  }
-  .user_nav{
-    // position: relative;
+header{
+  background-image: url(/images/phone_image2.jpg);
+  background-size: cover; 
+}
 
-    height: 100px;
-    display: inline-block;
+
+
+
+
+// .title--big {
+//   font-size: 1.5em;
+//   font-weight: bold;
+//   i {
+//     font-style: italic;
+//     font-size: 1.8em;
+//   }
+// }
+
+
+
+
+// .header{
+//   border-bottom: 1px solid $gray;
+//   background-color: #fff;
+//   position: fixed;
+//   z-index: 5;
+//   height: 62px;
+
+//   }
+//   div.header__bar{
+//     position: relative;
+//     h1.grid-6 {
+//       font-size: 20px;
+//       line-height: 41px;
+//       float: left;
+//       a {
+//         display: block;
+//       }
+//     }
+//     div.grid-6 {
+//       float: right;
+//       text-align: right;
+//       a.post {
+//         @extend .btn;
+//         width: 120px;
+//         display: inline-left;
+//         margin-left: 10px;
+//       }
+//     }
+//   }
+//   .user_nav{
+//     // position: relative;
+
+//     height: 100px;
+//     display: inline-block;
 
 
 
@@ -198,9 +214,10 @@ header.header{
     //     }
     //   }
     //  }
-  }
-}
+  
+
 .form {
+
   background: url(https://dl.dropboxusercontent.com/u/5840617/DeathtoStock_Wired3.jpg);
   background-size: cover;
   .contents {
@@ -407,3 +424,15 @@ footer {
   }
 }
 
+.like_button{
+  background-color: #BDBDBD;
+}
+
+.like_button_on{
+  background-color: #FE2E2E;
+}
+
+body{
+background-image: url(/images/body_back.jpg);
+background-size: cover;   
+}

@@ -23,26 +23,31 @@
 
   <body>
     <header>
-      <div class="header__bar">
-        <h1 class="title"><a href="/">みんなのスマホ</a></h1>
-        <h2>いろんなスマホの情報を共有しよう<h2>
+      <div class="title">
+        <h1 class="title__main"><a href="/">みんなのスマホ</a></h1>
+        <h2 class="tilte__sub"><a href="/">いろんなスマホの情報を共有しよう</a></h2>
+      </div>
         <% if user_signed_in? %>
-          <div class="user_nav title">
-          <span><%= current_user.nickname %>
-            <ul class="user__info">
-              <li>
-                <%= link_to "マイページ", "/users/#{current_user.id}" %>
+            <div class="nav">
+              <div class="nav__term">
+                <%= link_to "#{current_user.nickname}さんの投稿", "/users/#{current_user.id}" %>
+              </div>
+              <div class="nav__term">
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              </li>
-            </ul>
-          </span>
-            <%= link_to  "投稿する", "/posts/new", class: "post" %>
-          </div>
-        <% else %>
-          <div class="title">
-            <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-            <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-          </div>
+              </div>
+              <div class="nav__term">
+                <%= link_to  "投稿する", "/posts/new", class: "post" %>
+              </div>
+              </div>
+          <% else %>
+            <div class="nav">
+             <div class="nav__term">
+              <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+              </div>
+              <div class="nav__term">
+              <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+              </div>
+            </div>
         <% end %>
       </div>
     </header>
