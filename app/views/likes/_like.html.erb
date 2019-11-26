@@ -1,22 +1,39 @@
 <% if user_signed_in? %>
-  <% if post.like_user(current_user.id) %>
-    <%= button_to post_like_path(like, post_id: post.id), method: :delete, id: "like-button", remote: true do %>
-      <%= image_tag("icon_red_heart.png") %>
-      <span>
-        <%= post.likes_count %>
-      </span>
+  <% unless post.like_user(current_user.id).blank? %>
+    <%= link_to post_like_path(post_id: post.id, id: post.likes[0].id), method: :delete, remote: true do %>
+      <div class="vertical_like">
+        <i class="far fa-heart like-btn" ></i>
+        <span class="red-text">
+          <%= post.likes_count %>
+        </span>
+      </div>
     <% end %>
   <% else %>
-    <%= button_to post_likes_path(post), id: "like-button", remote: true do %>
-      <%= image_tag("icon_heart.png") %>
-      <span>
-        <%= post.likes_count %>
-      </span>
+    <%= link_to post_likes_path(post.id), method: :post, remote: true do %>
+      <div class="vertical_like">
+        <i class="fas fa-heart unlike-btn"></i>
+        <span class="grey-text">
+          <%= post.likes_count %>
+        </span>
+      </div>
     <% end %>
   <% end %>
+
 <% else %>
-  <%= image_tag("icon_heart.png") %>
-    <span>
-      <%= post.likes_count %>
-    </span>
+  <% if post.likes_count > 0 %>
+    <div class="vertical_like">
+    <i class="far fa-heart like-btn"></i>
+      <span class="red-text">
+        <%= post.likes_count %>
+      </span>
+    </div>
+  <% else %>
+    <div class="vertical_like">
+      <i class="fas fa-heart unlike-btn"></i>
+      <span class="grey-text">
+        <%= post.likes_count %>
+      </span>
+    </div>
+  <% end %>
+
 <% end %>

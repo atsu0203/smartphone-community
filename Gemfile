@@ -70,3 +70,12 @@ gem 'mini_magick'
 gem 'kaminari'
 
 gem 'bootstrap-sass'
+
+gem 'materialize-sass'
+gem 'material_icons'
+
+gem 'font-awesome-sass'
+
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
