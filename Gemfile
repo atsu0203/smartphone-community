@@ -79,3 +79,8 @@ gem 'font-awesome-sass'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
+
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
