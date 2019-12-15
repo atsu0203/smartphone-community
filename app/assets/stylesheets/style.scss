@@ -325,7 +325,7 @@ div.contents_row{
 
         }
       }
-    }
+    // }
     // p {
     //   position: absolute;
     //   left: 30px;
@@ -356,7 +356,7 @@ div.contents_row{
     //     display: block;
     //   }
     // }
-  }
+  // }
   .success {
     @include boxBase(20px 0 ,30px);
     box-shadow: 0 0 10px rgba($black,0.2);
@@ -367,7 +367,7 @@ div.contents_row{
       @include baseMargin;
     }
   }
-}
+// }
 // form {
 //   h3 {
 //     @include baseMargin(0 0 20px);
