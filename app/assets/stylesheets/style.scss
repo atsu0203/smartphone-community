@@ -395,51 +395,51 @@ div.contents_row{
 //     }
 //   }
 // }
-.container {
-  @include boxBase(20px 0 ,30px);
-  box-shadow: 0 0 10px rgba($black,0.2);
-  background-color: $white;
-  box-sizing: border-box;
+// .container {
+//   @include boxBase(20px 0 ,30px);
+//   box-shadow: 0 0 10px rgba($black,0.2);
+//   background-color: $white;
+//   box-sizing: border-box;
 
 
-}
-.comments {
-  padding: 5px;
-  margin-top: 15px;
-  a {
-    color: $accent;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
+// }
+// .comments {
+//   padding: 5px;
+//   margin-top: 15px;
+//   a {
+//     color: $accent;
+//     &:hover {
+//       text-decoration: underline;
+//     }
+//   }
+// }
 
-footer {
-  @include boxBase;
-  color: #666;
-  p {
-    text-align: center;
-  }
-}
+// footer {
+//   @include boxBase;
+//   color: #666;
+//   p {
+//     text-align: center;
+//   }
+// }
 
-.search-form {
-  text-align: center;
-  padding-top: 32px;
-  .search-input {
-    width: 30%;
-    margin-right: 10px;
-  }
+// .search-form {
+//   text-align: center;
+//   padding-top: 32px;
+//   .search-input {
+//     width: 30%;
+//     margin-right: 10px;
+//   }
 
-  .search-btn {
-    width: 10%;
-  }
-}
+//   .search-btn {
+//     width: 10%;
+//   }
+// }
 
-.like_button{
-  background-color: #BDBDBD;
-}
+// .like_button{
+//   background-color: #BDBDBD;
+// }
 
-.like_button_on{
-  background-color: #FE2E2E;
-}
+// .like_button_on{
+//   background-color: #FE2E2E;
+// }
 
