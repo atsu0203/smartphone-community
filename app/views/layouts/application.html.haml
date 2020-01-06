@@ -20,26 +20,32 @@
         s.parentNode.insertBefore(wf, s);
       })();
   %body
-    %header
+    %header.header
       .title
         %h1.title__main
           %a{:href => "/"} みんなのスマホ
-        %h2.tilte__sub
+        %h2.title__sub
           %a{:href => "/"} いろんなスマホの情報を共有しよう
       - if user_signed_in?
-        .nav
-          .nav__term
-            = link_to "#{current_user.nickname}さんの投稿", "/users/#{current_user.id}"
-          .nav__term
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
-          .nav__term
-            = link_to  "投稿する", "/posts/new", class: "post"
+        .bg-mask
+          .navbar
+            .postnav
+              .postnav__term
+                = link_to "#{current_user.nickname}さんの投稿", "/users/#{current_user.id}"
+              .postnav__term
+                = link_to  "投稿する", "/posts/new", class: "post"
+            .usernav
+              .usernav__term
+                = link_to "ログアウト", destroy_user_session_path, method: :delete
       - else
-        .nav
-          .nav__term
-            = link_to "ログイン", new_user_session_path, class: 'post'
-          .nav__term
-            = link_to "新規登録", new_user_registration_path, class: 'post'
+        .bg-mask
+          .navbar
+            .postnav
+            .usernav
+              .usernav__term
+                = link_to "ログイン", new_user_session_path, class: 'post'
+              .usernav__term
+                = link_to "新規登録", new_user_registration_path, class: 'post'
     = yield
     %footer
       %p
