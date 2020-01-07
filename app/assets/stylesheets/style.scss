@@ -1,5 +1,5 @@
-@import "compass";
-@import "materialize/components/icons-material-design";
+// @import "compass";
+// @import "materialize/components/icons-material-design";
 
 $accent: rgb(108, 75, 224);
 $black: #292929;
@@ -21,7 +21,7 @@ $white: white;
   margin: $margin;
   }
 
-body,html {
+.wrapper {
   background-image: url(/images/body_back.jpg);
   background-size: cover;   
   }
@@ -38,7 +38,7 @@ h1,h2,h3,h4,h5,h6,body {
 a {
   text-decoration: none;
   color: $dark;
-  @extend .transition;
+  // @extend .transition;
   &:hover {
     color: $accent;
     }
@@ -60,11 +60,11 @@ a {
   background: $gray;
 }
 
-.transition {
-  @include transition-property(all);
-  @include transition-duration(0.2s);
-  @include transition-timing-function(linear);
-}
+// .transition {
+//   @include transition-property(all);
+//   @include transition-duration(0.2s);
+//   @include transition-timing-function(linear);
+// }
 
 .btn {
     @include basePadding(8px 20px);
@@ -276,7 +276,7 @@ form {
     font-family: "游ゴシック", "YuGothic";
   }
   input[type="submit"] {
-    @extend .transition;
+    // @extend .transition;
     background-color: $accent;
     border-radius: 20px;
     color: #fff;
@@ -301,8 +301,6 @@ form {
   margin:0 auto;
   max-width:1000px;
   display:flex;
-  display: -webkit-flex;
-  -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
@@ -315,49 +313,14 @@ footer{
   margin:0 auto;
   max-width:1000px;
   text-align: center;
+  width: 100%;
 }
 
-.form {
-  width: 100%;
-  position: relative;
-  margin-right: 50px;
-  .input-default {
-    background-color: #f5f5f5;
-    font-size: 16px;
-    height: 40px;
-    position: relative;
-    line-height: 1.4em;
-    width: 100%;
-    border-radius: 4px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(204,204,204);
-    border-image: initial;
-    padding: 0px 10px 0px 10px;
-    -webkit-appearance: none;
-    transition: all 0.3s ease-out 0s;
-  }
-  &__btn {
-    background-color: transparent;
-    position: absolute;
-    cursor: pointer;
-    height: 40px;
-    width: 40px;
-    top: 0;
-    right: 0;
-    text-align: center;
-    line-height: 40px;
-    border:none;
-    :focus{
-      outline: none;
-    }
-    .fa-search {
-      max-width: 100%;
-      max-height: 100%;
-      color: rgb(34,34,34);
-      height: 14px;
-      width: 14px;
-      margin-top:2px;
-    }
-  }
+
+.search-form{
+  display: block;
+
+
+
 }
+

@@ -1,9 +1,10 @@
-.form
-  = form_with(url: posts_searches_path, local: true, method: :get, class: "search-form") do |f|
-    = f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
-    .form__btn
-      %i.fa.fa-search  
-      = f.submit "", class: "search-btn"
-.contents.row
-  - @posts.each do |post|
-    = render partial: "posts/post", locals: { post: post }
+.wrapper
+  .form
+    = form_with(url: posts_searches_path, local: true, method: :get, class: "search-form") do |f|
+      = f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
+      .form__btn
+        %i.fa.fa-search  
+        = f.submit "", class: "search-btn"
+  .contents.row
+    - @posts.each do |post|
+      = render partial: "posts/post", locals: { post: post }
