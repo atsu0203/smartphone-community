@@ -1,3 +1,27 @@
+.field
+  - if current_user.persisted? && current_user.avatar?
+    = image_tag(current_user.avatar.to_s, :class => "img-fluid", :alt => "ユーザーアバター")
+    %label
+      = f.check_box :remove_avatar
+      画像を削除
+  - else
+    = image_tag("favicon.png", :class => "img-thumbnail", :size => "230x230", :alt => "アイコン")
+    = f.hidden_field :avatar_cache
+  .input-group.input-group-sm.mb-3
+    .input-group-prepend
+      %span.input-group-text アップロード
+    .custom-file
+      = f.file_field :avatar, class: 'custom-file-input'
+      %label.custom-file-label{"data-browse" => "参照", :for => "customFile"} ファイル選択...
+
+
+
+
+
+
+
+
+
 %h2
   Edit #{resource_name.to_s.humanize}
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|

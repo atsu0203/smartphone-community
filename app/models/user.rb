@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
+  mount_uploader :avatar, AvatarUploader
+
   devise :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
 
   def self.find_oauth(auth)

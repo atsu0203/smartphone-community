@@ -104,6 +104,8 @@ a {
   }
 
   .navbar{
+    max-width:1000px;
+    margin:0 auto;
     height:40px;
     display:flex;
     justify-content: space-between;
@@ -285,4 +287,21 @@ form {
       }
     }
   }
+}
+
+
+
+.content_post{ 
+  width:28%;
+  margin:20px;
+  border-radius: 20px;
+}
+
+.contents{
+  margin:0 auto;
+  max-width:1000px;
+  display:flex;
+  display: -webkit-flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
