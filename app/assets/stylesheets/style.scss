@@ -21,8 +21,9 @@ $white: #ffffff;
 
 html {
   height:100vh;
-  background-image: url(/images/body_back.jpg);
-  background-size: cover;   
+  background-color: $lightGray;
+  // background-image: url(/images/body_back.jpg);
+  // background-size: cover;   
 }
 
 h1,h2,h3,h4,h5,h6,body {
