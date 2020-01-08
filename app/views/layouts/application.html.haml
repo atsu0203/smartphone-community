@@ -33,7 +33,9 @@
               .postnav__term
                 = link_to "#{current_user.nickname}さんの投稿", "/users/#{current_user.id}"
               .postnav__term
-                = link_to  "投稿する", "/posts/new", class: "post"
+                = link_to  "投稿する", new_post_path, class: "post"
+              .postnav__term
+                = link_to  "プロフィール", edit_user_registration_path, class: "post"
             .usernav
               .usernav__term
                 = link_to "ログアウト", destroy_user_session_path, method: :delete

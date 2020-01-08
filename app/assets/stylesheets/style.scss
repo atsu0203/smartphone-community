@@ -115,15 +115,15 @@ a {
       border: 1px solid #ccc;
       }
       &__btn{
-        position: relative;;
-        width:0px;
+        position: relative;
+        height:0px;
         &__icon{
-          position: absolute;
-          top:-35px;
           @media (min-width:1000px) {
           left:885px;
            }
           left:90vw;
+          position: absolute;
+          top:-35px;
           }
         &__link{
           @media (min-width:1000px) {
@@ -134,9 +134,8 @@ a {
           -webkit-appearance: none;
           width:50px;
           height:32px;
-          top:-42px;
-          
-          opacity:0.5;
+          top:-42px;       
+          opacity:0;
           cursor: pointer;
           position: relative;
 
@@ -151,6 +150,9 @@ a {
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+    &_user{
+      width:100%;
+    }
     .content_post{
       background-size: cover; 
       width:280px;
