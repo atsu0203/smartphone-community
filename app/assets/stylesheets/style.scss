@@ -1,5 +1,4 @@
 // @import "compass";
-// @import "materialize/components/icons-material-design";
 
 $accent: rgb(108, 75, 224);
 $black: #292929;
@@ -21,7 +20,8 @@ $white: white;
   margin: $margin;
   }
 
-.wrapper {
+html {
+  height:100vh;
   background-image: url(/images/body_back.jpg);
   background-size: cover;   
   }
@@ -295,32 +295,48 @@ form {
   width:28%;
   margin:20px;
   border-radius: 20px;
+
 }
 
 .contents{
+  display: block;
   margin:0 auto;
   max-width:1000px;
-  display:flex;
+    display:flex;
   flex-wrap: wrap;
+  
 }
 
 footer{
+  display: block;
   text-align: center;
 }
 
 .search-form{
-  display: block;
-  margin:0 auto;
+  display:box;
+  display: flex;
+  align-items: center;
   max-width:1000px;
-  text-align: center;
+  position: absolute;
+  .search-input{
   width: 100%;
+  }
+  .form__btn{
+    display:flex
+    i{
+      position: relative;
+      left:-30px;
+    }
+    .search-btn{
+      position: relative;
+    // display:none;
+      left:-45px;
+      width:30px
+    }
+  }
 }
 
 
-.search-form{
-  display: block;
 
 
-
-}
 
