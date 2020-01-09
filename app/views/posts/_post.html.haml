@@ -1,24 +1,17 @@
-=link_to post_path(post.id) do
-  .content_post{:style => "background-image: url(#{post.image});"}
-    -if post.user.avatar.url.present?
-      = link_to user_path(post.user.id) do
-        .post-user
-          = image_tag post.user.avatar.url, width: "150px", hight: "150px" ,class:"avatar"
-    .more
-      %span= image_tag 'arrow_top.png'
-      %ul.more_list
-        %li
-          = link_to '詳細', "/posts/#{post.id}", method: :get
-        - if user_signed_in? && current_user.id == post.user_id
-          %li
-            = link_to '編集', "/posts/#{post.id}/edit", method: :get
-          %li
-            = link_to '削除', "/posts/#{post.id}", method: :delete
-    .post-text        
-      = simple_format(post.text)   
-      .name
-        %span 投稿者
-        = post.user.nickname
-      -# .likes_buttons{:id => "likes_buttons_#{post.id}"}
-        -# = render partial: 'likes/like', locals: { post: post, likes: @likes}
-       
+.content-post{:style => "background-image: url(#{post.image});"}
+  = link_to post_path(post.id) do
+    .covered
+    .post-detail
+      -if post.user.avatar.url.present?
+        = link_to user_path(post.user.id) do
+          .post-detail__user
+            = image_tag post.user.avatar.url, width: "150px", hight: "150px" ,class:"avatar"
+      .post-detail__text
+        .post-detail__text__title
+          = post.text
+        .post-detail__text__description
+          .post-detail__text__description__category
+            %span series
+            iPhone 
+          .post-detail__text__descriptionn__nickname
+            = post.user.nickname 

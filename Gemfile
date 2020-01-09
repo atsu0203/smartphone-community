@@ -84,6 +84,8 @@ gem 'haml-rails'
 
 gem 'rails-i18n', '~> 5.1'
 
+gem 'ancestry'
+
 group :production do
   gem 'unicorn', '5.4.1'
 end
