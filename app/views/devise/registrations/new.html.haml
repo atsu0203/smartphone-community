@@ -1,31 +1,32 @@
-.devise
-  %h2 新規登録
-  = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
-    = devise_error_messages!
-    .field
-      = f.label :nickname
-      %em (最大6文字まで)
-      %br/
-      = f.text_field :nickname, autofocus: true, maxlength: "6"
-    .field
-      = f.label :email
-      %br/
-      = f.email_field :email
-    .field
-      = f.label :password
-      - if @validatable
+.card
+  .devise
+    %h2 新規登録
+    = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+      = devise_error_messages!
+      .field
+        = f.label :nickname
+        %em (最大6文字まで)
+        %br/
+        = f.text_field :nickname, autofocus: true, maxlength: "6",class:"user-form"
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email,class:"user-form"
+      .field
+        = f.label :password
+        - if @validatable
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "off",class:"user-form"
+      .field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "off" ,class:"user-form"
+      .field
+        = f.label :avatar
         %em
-          (#{@minimum_password_length} characters minimum)
-      %br/
-      = f.password_field :password, autocomplete: "off"
-    .field
-      = f.label :password_confirmation
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "off"
-    .field
-      = f.label :avatar
-      %em
-      %br/
-      = f.file_field :avatar
-    .actions
-      = f.submit "新規登録"
+        %br/
+        = f.file_field :avatar,class:"user-form"
+      .actions
+        = f.submit "新規登録", class: "btn"

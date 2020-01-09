@@ -1,17 +1,16 @@
 .content-post{:style => "background-image: url(#{post.image});"}
   = link_to post_path(post.id) do
     .covered
-    .post-detail
-      -if post.user.avatar.url.present?
-        = link_to user_path(post.user.id) do
-          .post-detail__user
-            = image_tag post.user.avatar.url, width: "150px", hight: "150px" ,class:"avatar"
+    -if post.user.avatar.url.present?
+      = link_to user_path(post.user.id) do
+        = image_tag post.user.avatar.url, width: "150px", hight: "150px" ,class:"avatar"
+    .post-detail     
       .post-detail__text
         .post-detail__text__title
           = post.text
         .post-detail__text__description
           .post-detail__text__description__category
-            %span series
+            %span type
             iPhone 
           .post-detail__text__descriptionn__nickname
             = post.user.nickname 

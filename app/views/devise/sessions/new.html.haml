@@ -1,18 +1,19 @@
-.devise
-  %h2 ログイン
-  = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
-    .field
-      = f.label :email
-      %br/
-      = f.email_field :email, autofocus: true
-    .field
-      = f.label :password
-      %br/
-      = f.password_field :password, autocomplete: "off"
-    - if devise_mapping.rememberable?
+.card
+  .devise
+    %h2 ログイン
+    = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
       .field
-        = f.label :パスワードを記憶させる
+        = f.label :email
         %br/
-        = f.check_box :remember_me
-    .actions
-      = f.submit "ログイン"
+        = f.email_field :email, autofocus: true, class:"user-form"
+      .field 
+        = f.label :password
+        %br/
+        = f.password_field :password, autocomplete: "off", class:"user-form"
+      - if devise_mapping.rememberable?
+        .field
+          = f.label :パスワードを記憶させる
+          %br/
+          = f.check_box :remember_me, class:"user-form"
+      .actions
+        = f.submit "ログイン", class:"btn"

@@ -38,7 +38,7 @@
                 = link_to  "プロフィール", edit_user_registration_path, class: "post"
             .usernav
               .usernav__term
-                = link_to "ログアウト", destroy_user_session_path, method: :delete
+                = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'post'
       - else
         .bg-mask
           .navbar
