@@ -6,7 +6,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         email: メールアドレス
-        nickname: 名前
+        nickname: ニックネーム
         age: 年齢
         avatar: プロフフィール画像
     errors:
