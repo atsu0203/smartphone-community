@@ -9,6 +9,7 @@ ja:
         nickname: ニックネーム
         age: 年齢
         avatar: プロフフィール画像
+        current_password: 現在のパスワード
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

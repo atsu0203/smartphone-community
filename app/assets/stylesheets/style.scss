@@ -255,6 +255,9 @@ footer{
   }
   .field{
     margin:10px auto;
+    i{
+      font-size: 10px;
+    }
     .label{
       margin:10px auto;
     }
@@ -266,4 +269,10 @@ footer{
       border: 1px solid #ccc;
     }
   }
+
+  .content-one{
+    .content-post{
+    }
+  }
 }
+

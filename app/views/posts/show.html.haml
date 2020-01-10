@@ -1,5 +1,5 @@
-.contents
-  .contents
+.card
+  .content-one
     .content_post{:style => "background-image: url(#{@post.image});"}
       - if user_signed_in? && current_user.id == @post.user_id
         .more

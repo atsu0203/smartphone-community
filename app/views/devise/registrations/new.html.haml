@@ -5,7 +5,7 @@
       = devise_error_messages!
       .field
         = f.label :nickname
-        %em (最大6文字まで)
+        %i (最大6文字まで)
         %br/
         = f.text_field :nickname, autofocus: true, maxlength: "6",class:"user-form"
       .field
