@@ -6,21 +6,18 @@
   %br  
   = form.text_area :text, placeholder: "   本文" , rows: "10", class:"post-form"
   %br
-.field
-  .field__category
+
+.listing-form-box
+  .listing-product-detail__category
     = form.label 'カテゴリー', class: 'listing-default__label'
-    %br
+    %span.listing-default--require 必須
     .listing-select-wrapper
       .listing-select-wrapper__box
-        = form.select :category, @parents,{prompt: "---"}, {class: 'select-default', id: 'parent_form'}
+        = form.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
         %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
-    .actions
-      %select#parent_category
-        - @parent_categories.each do |c|
-          %option{:value => "#{c.id}"}= c.name
-      %select#product_category_ids{:name => "product[category_ids]"}
-        - @default_child_categories.each do |c|
-          %option= c.name
+.field
+  .field__category
+ 
 
   = form.submit "投稿する", class:"btn"

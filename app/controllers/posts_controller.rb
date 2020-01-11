@@ -6,26 +6,16 @@ class PostsController < ApplicationController
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(6)
   end
 
- def new
+  def new
     @post = Post.new
-    @parents = ["---"]
+    @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
-      @parents << parent.name
+      @category_parent_array << parent.name
     end
   end
 
-  def dynamic_select_category
-    @category = Category.find(params[:category_id])
-   end
-
-   def get_children
-    respond_to do |format|
-      format.html
-      format.json do
-       @children = Category.find(params[:parent_id]).children
-       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
-      end
-    end
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
   
   def create
