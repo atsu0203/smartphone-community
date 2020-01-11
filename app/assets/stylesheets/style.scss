@@ -37,7 +37,7 @@ body {
 
 a {
   text-decoration: none;
-  color: $dark;
+  color:$black;
   &:hover {
     color: $accent;
   }
@@ -69,7 +69,6 @@ a {
 }
 
 .header{
-  
   background-image: url(/images/phone_image2.jpg);
   background-size: cover; 
   .title{
@@ -100,7 +99,7 @@ a {
   .navbar{
     max-width:1000px;
     margin:0 auto;
-    height:40px;
+    height:50px;
     display:flex;
     justify-content: space-between;
     .postnav{
@@ -113,7 +112,7 @@ a {
       display:flex;
       border-bottom: 2px solid #dddddd;
       &__term{
-        padding:10px 50px; 
+        padding:10px 10px; 
       }
     }
   }
@@ -262,6 +261,13 @@ footer{
       margin:10px auto;
     }
     .user-form{
+      width:200px;
+      height: 30px;
+      margin:10px auto;
+      border-radius: 10px; 
+      border: 1px solid #ccc;
+    }
+    .post-form{
       width:200px;
       height: 30px;
       margin:10px auto;

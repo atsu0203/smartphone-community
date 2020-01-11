@@ -1,6 +1,6 @@
 .card
   .content-one
     = form_with(model: @post, local: true) do |f|
-      %h3
+      %h2
         投稿する
       = render partial: "form", locals: { form: f }

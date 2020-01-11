@@ -1,14 +1,11 @@
 .card
   .content-one
-    .content_post{:style => "background-image: url(#{@post.image});"}
-      - if user_signed_in? && current_user.id == @post.user_id
-        .more
-          %span= image_tag 'arrow_top.png'
-          %ul.more_list
-            %li
-              = link_to '編集', "/posts/#{@post.id}/edit", method: :get
-            %li
-              = link_to '削除', "/posts/#{@post.id}", method: :delete
+    .content_post
+    {:style => "background-image: url(#{@post.image});"}
+      
+
+          
+
       = simple_format(@post.text)
       %span.name
         %a{:href => "/users/#{@post.user.id}"}
@@ -31,3 +28,10 @@
               = link_to comment.user.nickname, "/users/#{comment.user_id}"
               ：
             = comment.text
+
+            - if user_signed_in? && current_user.id == @post.user_id
+            %ul.more_list
+              %li
+              = link_to '編集', "/posts/#{@post.id}/edit", method: :get
+            %li
+              = link_to '削除', "/posts/#{@post.id}", method: :delete

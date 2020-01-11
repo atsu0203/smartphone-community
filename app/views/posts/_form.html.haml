@@ -1,7 +1,9 @@
-.form
-  = form.text_field :name, placeholder: "携帯の機種"
-.form
-  = form.file_field :image, placeholder: "画像の選択"
-.form  
-  = form.text_area :text, placeholder: "コメント" , rows: "10"
-  = form.submit "SEND"
+.field
+  = form.text_field :name, placeholder: "   記事タイトル", class:"post-form"
+.field
+  = form.file_field :image, placeholder: "画像の選択", class:"post-form"
+.field
+  %br  
+  = form.text_area :text, placeholder: "   本文" , rows: "10", class:"post-form"
+  %br
+  = form.submit "投稿する", class:"btn"
