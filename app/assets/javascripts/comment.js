@@ -1,5 +1,6 @@
 $(function(){
   function buildHTML(comment){
+    console.log(this)
     var html = `<p>
                   <strong>
                     <a href=/users/${comment.user_id}>${comment.user_name}</a>
@@ -11,6 +12,7 @@ $(function(){
   }
   $('#new_comment').on('submit', function(e){
     e.preventDefault();
+    console.log(this)
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
@@ -20,14 +22,17 @@ $(function(){
       dataType: 'json',
       processData: false,
       contentType: false
-  })
-  .done(function(data){
-    var html = buildHTML(data);
-    $('.comments').append(html);
-    $('.textbox').val('');
-    $('.form__submit').prop('disabled', false);
-  })
-  .fail(function(){
-    alert('error');
+    })
+    .done(function(data){
+      console.log(this)
+      var html = buildHTML(data);
+      $('.comments').append(html);
+      $('.textbox').val('');
+      $('.form__submit').prop('disabled', false);
+    })
+    .fail(function(){
+      console.log(this)
+      alert('えらーです');
+    })
   })
 })

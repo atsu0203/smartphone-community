@@ -10,8 +10,8 @@
   .container
     - if current_user
       = form_with(model: [@post, @comment], local: true, id: "new_comment") do |form|
-        = form.text_area :text, placeholder: "コメント", rows: "2",class: "textbox"
-        = form.submit "コメントする", class: "form__submit"
+        = form.text_area :text, placeholder: "コメント内容", rows: "2",class: "textbox"
+        = form.submit "コメント", class: "form__submit"
     - else
       %strong
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※

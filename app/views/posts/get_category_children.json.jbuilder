@@ -1,4 +1,4 @@
 json.array! @category_children do |child|
   json.id child.id
-  json.name child.category
+  json.name child.name
 end
