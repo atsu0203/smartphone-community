@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   validates :text, presence: true
   belongs_to :user
-  # belongs_to :category
+  belongs_to :category
   has_many :comments 
   has_many :likes, dependent: :destroy
   def like_user(user_id)

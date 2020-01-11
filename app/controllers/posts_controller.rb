@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:name, :image, :text).merge(user_id: current_user.id)
+    params.require(:post).permit(:name, :image, :text, :category).merge(user_id: current_user.id)
   end
 
   def set_post
@@ -53,11 +53,5 @@ class PostsController < ApplicationController
     redirect_to action: :index unless user_signed_in?
   end
 
-  before_action :set_categories, only: %w[edit new]
-private
-def set_categories
- @parent_categories = Category.roots
- @default_child_categories = @parent_categories.first.children
-end
 
 end
