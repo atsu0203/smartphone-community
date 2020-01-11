@@ -86,6 +86,8 @@ gem 'rails-i18n', '~> 5.1'
 
 gem 'ancestry'
 
+gem 'jquery-rails'
+
 group :production do
   gem 'unicorn', '5.4.1'
 end

@@ -6,4 +6,21 @@
   %br  
   = form.text_area :text, placeholder: "   本文" , rows: "10", class:"post-form"
   %br
+.field
+  .field__category
+    = form.label 'カテゴリー', class: 'listing-default__label'
+    %br
+    .listing-select-wrapper
+      .listing-select-wrapper__box
+        = form.select :category, @parents,{prompt: "---"}, {class: 'select-default', id: 'parent_form'}
+        %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+
+    .actions
+      %select#parent_category
+        - @parent_categories.each do |c|
+          %option{:value => "#{c.id}"}= c.name
+      %select#product_category_ids{:name => "product[category_ids]"}
+        - @default_child_categories.each do |c|
+          %option= c.name
+
   = form.submit "投稿する", class:"btn"
