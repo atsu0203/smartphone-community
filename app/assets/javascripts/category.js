@@ -63,18 +63,18 @@ $(function(){
       // $('#brand_wrapper').remove();
     }
   });
-  // 子カテゴリー選択後のイベント
-  // $('.listing-product-detail__category').on('change', '#child_category', function(){
-  //   var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
-  //   if (childId != "---"){ //子カテゴリーが初期値でないことを確認
-  //     $.ajax({
-  //       url: 'get_category_grandchildren',
-  //       type: 'GET',
-  //       data: { child_id: childId },
-  //       dataType: 'json'
-  //     })
-  //     .done(function(grandchildren){
-  //       if (grandchildren.length != 0) {
+   // 子カテゴリー選択後のイベント
+  $('.listing-product-detail__category').on('change', '#child_category', function(){
+    var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
+    if (childId != "---"){ //子カテゴリーが初期値でないことを確認
+      $.ajax({
+        url: 'get_category_grandchildren',
+        type: 'GET',
+        data: { child_id: childId },
+        dataType: 'json'
+      })
+      // .done(function(grandchildren){
+        // if (grandchildren.length != 0) {
   //         $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除するする
   //         $('#size_wrapper').remove();
   //         $('#brand_wrapper').remove();
@@ -87,11 +87,11 @@ $(function(){
   //     })
   //     .fail(function(){
   //       alert('カテゴリー取得に失敗しました');
-  //     })
+      // })
   //   }else{
   //     $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
   //     $('#size_wrapper').remove();
   //     $('#brand_wrapper').remove();
-    // }
-  // });
+    }
+  });
 });

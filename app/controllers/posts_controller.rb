@@ -18,7 +18,12 @@ class PostsController < ApplicationController
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
   
+  def get_category_grandchildren
+    @category_children = Category.find("#{params[:child_id]}").children 
+  end
+  
   def create
+    @category = Category.find_by(name: params[:category_id])
     Post.create(post_params)
   end 
 
@@ -42,8 +47,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:name, :image, :text).merge(user_id: current_user.id,category_id: params[:category_id]
-    )
+    params.require(:post).permit(:name, :image, :text).merge(user_id: current_user.id, category_id: @category.id)
   end
 
   def set_post
@@ -53,6 +57,5 @@ class PostsController < ApplicationController
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
-
-
 end
+
