@@ -1,17 +1,26 @@
 .card
   .content-one
-    %h2
-      = @post.name
-    .category-parent
-      = @post.category.parent.name
-    .category-children
-      = @post.category.name
-    .post-image
-      = image_tag @post.image.url, width: "400px", hight: "400px" ,class:"image"
-    .post-text
-      = simple_format(@post.text)
-    %span.name
-      = link_to  @post.user.nickname, "/users/#{@post.user.id}"
+    .field
+      %h2
+        = @post.name
+    .field
+      %h3 シリーズ
+      .category-parent
+        = @post.category.parent.name
+    .field
+      %h3 機種
+      .category-children
+        = @post.category.name
+    .field
+      .post-image
+        = image_tag @post.image.url, width: "400px", hight: "400px" ,class:"image"
+    .field
+      .post-text
+        = simple_format(@post.text)
+    .field
+      %span.name
+        %h3 投稿者
+        = link_to  @post.user.nickname, "/users/#{@post.user.id}"
       -# = image_tag @post.user.avatar.url, width: "150px", hight: "150px" ,class:"avatar"
     - if user_signed_in? && current_user.id == @post.user_id
       %ul.user-list
@@ -31,12 +40,13 @@
       %h4 ＜コメント一覧＞
       - if @comments
         - @comments.each do |comment|
-          %p
-            %strong
-              = link_to comment.user.nickname, "/users/#{comment.user_id}"
-            = comment.text
+          .field
+            %p
+              %strong
+                = link_to comment.user.nickname, "/users/#{comment.user_id}"
+              = comment.text
 
 
-            %a{:style => "background-image: url(#{post.image});"}
+            -# %a{:style => "background-image: url(#{post.image});"}
 
 

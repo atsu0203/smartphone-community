@@ -1,8 +1,4 @@
 class CategoriesController < ApplicationController
-  before_action :set_parents, only:[:index, :show, :new, :edit]
-  def set_parents
-    @parents = Category.where(ancestry: nil)
-  end
 
   # def new
   #   @children = Category.find(params[:parent_id]).children

@@ -1,14 +1,8 @@
 class PostsController < ApplicationController
-  before_action :set_parents
   before_action :set_post, only: [:edit, :show]
   before_action :move_to_index, except: [:index, :show]
   before_action :get_category_parent, only: [:new, :edit]
   
-  def set_parents
-    @parents = Category.where(ancestry: nil)
-  end
-
-
   def index
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(6)
   end

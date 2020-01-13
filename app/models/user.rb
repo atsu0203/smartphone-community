@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many :comments
 
 
+
+
+  
+
   devise :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
 
   def self.find_oauth(auth)
