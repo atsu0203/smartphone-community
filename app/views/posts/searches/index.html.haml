@@ -5,6 +5,12 @@
       %i.fa.fa-search.search__btn__icon
       = f.submit "", class: "search__btn__link"
 .contents
+  .contents_user       
+    検索結果:
+    - if params[:keyword].present? 
+      = params[:keyword]
+    - else
+      全ての投稿
   - @posts.each do |p|
     = render partial: 'posts/post', locals: {post: p}
   .pagination
