@@ -9,6 +9,7 @@ class CategoriesController < ApplicationController
   # end
 
   def show
+    @category = Category.find(params[:id])
     @children = Category.find(params[:id]).child_ids
     @posts = Post.where(category_id: @children).order("created_at DESC").page(params[:page]).per(6)
   end
