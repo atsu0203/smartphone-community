@@ -2,6 +2,14 @@
 ja:
   activerecord:
     attributes:
+      post:
+        name: 記事タイトル
+        text: 本文
+        image: 画像
+        category: シリーズ
+        user: 投稿者
+        tag: タグ
+
       user:
         password: パスワード
         password_confirmation: パスワード確認

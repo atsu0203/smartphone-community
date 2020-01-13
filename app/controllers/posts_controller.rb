@@ -35,9 +35,12 @@ class PostsController < ApplicationController
     @like = Like.new
   end
 
+
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
+
+
 
   private
   def post_params

@@ -1,27 +1,33 @@
 .field
+  = form.label :name
+  %br/
   = form.text_field :name, placeholder: "   記事タイトル", class:"post-form"
 
 .field
   .field__category
+    = form.label :category, class: 'listing-default__label'
+    %br/
+    %span.listing-default
+    .listing-select
+      .listing-select__box
+        = form.select :category, @category_parent_array, {}, {class: 'listing-select__box--select', id: 'parent_category'}
+        %i.fas.fa-chevron-down.listing-select__box--arrow-down
+        %br/
 
-
-.listing-form-box
-  .listing-product-detail__category
-    = form.label 'カテゴリー', class: 'listing-default__label'
-    %span.listing-default--require 必須
-    .listing-select-wrapper
-      .listing-select-wrapper__box
-        = form.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-        %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
 
 .field
+  = form.label :image
+  %br/
   = form.file_field :image, placeholder: "画像の選択", class:"post-form"
 
 .field
+  = form.label :text
   %br  
-  = form.text_area :text, placeholder: "   本文" , rows: "10", class:"post-form"
+  = form.text_area :text, placeholder: "（例）このスマホの良い所は○○である。このスマホの悪い所は〇〇である。                     　                                                                　#便利スマホ" , rows: "10", class:"post-form"
   %br
- 
+  ＃タグを付けることができます
+  %br
+  %br
 
   = form.submit "投稿する", class:"btn"
