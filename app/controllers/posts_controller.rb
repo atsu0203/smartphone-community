@@ -11,11 +11,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  end
-
-  
   def create
     @category = Category.find_by(name: params[:category_id])
     Post.create(post_params)
@@ -37,11 +32,16 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @post.comments.includes(:user) 
+    @like = Like.new
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
 
   private
   def post_params
-    params.require(:post).permit(:name, :image, :text).merge(user_id: current_user.id, category_id: @category.id)
+    params.require(:post).permit(:name, :image, :text, :tag_ids).merge(user_id: current_user.id, category_id: @category.id)
   end
 
   def set_post
