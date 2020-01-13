@@ -35,12 +35,14 @@
                     = link_to "使い方","#"
                 
               .postnav__item
-                .category_list
-                  .parents_list
-                    - @parents.each do |parent|
+                .menu
+                  シリーズ
+                %ul
+                  %li.bold
+                    シリーズ
+                  - @parents.each do |parent|
+                    %li
                       = link_to "#{parent.name}", category_path(parent), class: "parent_category",id: "#{parent.id}"
-                    .children_list
-
 
             .usernav
               .usernav__item
