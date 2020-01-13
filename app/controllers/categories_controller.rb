@@ -4,25 +4,24 @@ class CategoriesController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
-  def new
-    @children = Category.find(params[:parent_id]).children
-    respond_to do |format|
-      format.html
-      format.json
-    end
-  end
+  # def new
+  #   @children = Category.find(params[:parent_id]).children
+  #   respond_to do |format|
+  #     format.html
+  #     format.json
+  #   end
+  # end
 
+# includes(category: @children)
 
   def show
-    @category = Category.find(params[:id])
-    @posts = @category.posts.order("created_at DESC").page(params[:page]).per(6)
-    @parents
+    @children = Category.find(params[:id]).child_ids
+    @posts = Post.where(category_id: @children).order("created_at DESC").page(params[:page]).per(6)
+
     # @children = Category.find(params[:parent_id]).children
     # @posts = @children.posts.order("created_at DESC").page(params[:page]).per(6)
     # @category = Category.find(params[:category_id])
     # category_idと紐づく投稿を取得
-    
-    # binding.pry
     # @posts = Post.includes(:category params(@children)).order("created_at DESC").page(params[:page]).per(6)
   end
 end
