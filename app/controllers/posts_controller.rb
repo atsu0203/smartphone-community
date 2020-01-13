@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  before_action :set_parents
   before_action :set_post, only: [:edit, :show]
   before_action :move_to_index, except: [:index, :show]
-  before_action :set_parents, only:[:index, :show, :new, :edit]
+  before_action :get_category_parent, only: [:new, :edit]
+  
   def set_parents
     @parents = Category.where(ancestry: nil)
   end
@@ -13,10 +15,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
   end
 
   def get_category_children
@@ -59,5 +57,13 @@ class PostsController < ApplicationController
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
+
+  def get_category_parent
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+  end
+
 end
 

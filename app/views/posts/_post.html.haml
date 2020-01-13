@@ -7,10 +7,10 @@
     .post-detail     
       .post-detail__text
         .post-detail__text__title
-          = post.text
+          = post.name
         .post-detail__text__description
           .post-detail__text__description__category
-            %span type
-            iPhone 
+          - if post.category.present?
+            = post.category.name
           .post-detail__text__descriptionn__nickname
             = post.user.nickname 

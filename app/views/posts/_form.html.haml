@@ -1,11 +1,9 @@
 .field
   = form.text_field :name, placeholder: "   記事タイトル", class:"post-form"
+
 .field
-  = form.file_field :image, placeholder: "画像の選択", class:"post-form"
-.field
-  %br  
-  = form.text_area :text, placeholder: "   本文" , rows: "10", class:"post-form"
-  %br
+  .field__category
+
 
 .listing-form-box
   .listing-product-detail__category
@@ -16,8 +14,13 @@
         = form.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
         %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
+
 .field
-  .field__category
- 
+  = form.file_field :image, placeholder: "画像の選択", class:"post-form"
+
+.field
+  %br  
+  = form.text_area :text, placeholder: "   本文" , rows: "10", class:"post-form"
+  %br
 
   = form.submit "投稿する", class:"btn"

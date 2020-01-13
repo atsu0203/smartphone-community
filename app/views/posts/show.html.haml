@@ -1,12 +1,24 @@
 .card
   .content-one
-    .content_post
+    %h2
+      = @post.name
+    .category-parent
+      = @post.category.parent.name
+    .category-children
+      = @post.category.name
+    .post-image
+      = image_tag @post.image.url, width: "400px", hight: "400px" ,class:"image"
+    .post-text
       = simple_format(@post.text)
-      -# {:style => "background-image: url(#{@post.image});"}
-      %span.name
-        %a{:href => "/users/#{@post.user.id}"}
-          %span 投稿者
-          = @post.user.nickname
+    %span.name
+      = link_to  @post.user.nickname, "/users/#{@post.user.id}"
+      -# = image_tag @post.user.avatar.url, width: "150px", hight: "150px" ,class:"avatar"
+    - if user_signed_in? && current_user.id == @post.user_id
+      %ul.user-list
+        %li
+          = link_to '編集', "/posts/#{@post.id}/edit", method: :get, class:'btn'
+        %li
+          = link_to '削除', "/posts/#{@post.id}", method: :delete, class:'btn'
   .container
     - if current_user
       = form_with(model: [@post, @comment], local: true, id: "new_comment") do |form|
@@ -22,12 +34,9 @@
           %p
             %strong
               = link_to comment.user.nickname, "/users/#{comment.user_id}"
-              ：
             = comment.text
 
-            -# - if user_signed_in? && current_user.id == @post.user_id
-            -# %ul.more_list
-            -#   %li
-            -#   = link_to '編集', "/posts/#{@post.id}/edit", method: :get
-            -# %li
-            -#   = link_to '削除', "/posts/#{@post.id}", method: :delete
+
+            %a{:style => "background-image: url(#{post.image});"}
+
+
