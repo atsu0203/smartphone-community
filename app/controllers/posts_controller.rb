@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show]
   before_action :move_to_index, except: [:index, :show]
+  before_action :set_parents, only:[:index, :show, :new, :edit]
+  def set_parents
+    @parents = Category.where(ancestry: nil)
+  end
+
 
   def index
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(6)
@@ -17,10 +22,7 @@ class PostsController < ApplicationController
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
-  
-  def get_category_grandchildren
-    @category_children = Category.find("#{params[:child_id]}").children 
-  end
+
   
   def create
     @category = Category.find_by(name: params[:category_id])

@@ -33,20 +33,24 @@
                     = link_to "プロフィール", edit_user_registration_path
                   %li
                     = link_to "使い方","#"
+                
+              .postnav__item
+                .category_list
+                  .parents_list
+                    - @parents.each do |parent|
+                      = link_to "#{parent.name}", category_path(parent), class: "parent_category",id: "#{parent.id}"
+                    .children_list
 
-              -# .postnav__term
-              -#   = link_to  "投稿する", new_post_path, class: "post"
-              -# .postnav__term
-              -#   = link_to  "プロフィール", edit_user_registration_path, class: "post"
+
             .usernav
-              .usernav__term
+              .usernav__item
                 = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
       - else
         .bg-mask
           .navbar
             .postnav
             .usernav
-              .usernav__term
+              .usernav__item
                 = link_to "ログイン", new_user_session_path, class: 'btn'
               .usernav__term
                 = link_to "新規登録", new_user_registration_path, class: 'btn'
