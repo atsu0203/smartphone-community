@@ -5,8 +5,9 @@
       = devise_error_messages!
       .field
         = f.label :nickname
-        %i (最大6文字まで)
-        %br/
+        %br
+        %i.exp(最大6文字まで)
+        %br
         = f.text_field :nickname, autofocus: true, maxlength: "6",class:"user-form"
       .field
         = f.label :email
@@ -15,8 +16,7 @@
       .field
         = f.label :password
         - if @validatable
-          %em
-            (#{@minimum_password_length} characters minimum)
+          %i.exp (#{@minimum_password_length} characters minimum)
         %br/
         = f.password_field :password, autocomplete: "off",class:"user-form"
       .field
@@ -25,8 +25,21 @@
         = f.password_field :password_confirmation, autocomplete: "off" ,class:"user-form"
       .field
         = f.label :avatar
-        %em
-        %br/
-        = f.file_field :avatar,class:"user-form"
+      .circle-avatar
+        %img#avatar_img_prev.hidden{:src => "#"}/
+        - if current_user && current_user.avatar?
+          = image_tag current_user.avatar.to_s, class: 'avatar_present_img'
+          %label
+            = f.check_box :remove_avatar
+            画像を削除
+          %br
+        - else
+          = image_tag 'no_avatar.png', class: 'avatar_present_img'
+          = f.hidden_field :avatar_cache
+          %br
+        .field
+          = f.file_field :avatar, id: 'post_img',class:"user-form"
+
       .actions
+        %br
         = f.submit "新規登録", class: "btn"
