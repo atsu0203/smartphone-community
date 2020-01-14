@@ -4,13 +4,16 @@
       %h2
         = @post.name
     .field
-      %h3 シリーズ
-      .category-parent
-        = @post.category.parent.name
-    .field
-      %h3 機種
-      .category-children
-        = @post.category.name
+      .category-box
+        .category-one
+          %h3 シリーズ
+        .category-one
+          = @post.category.parent.name
+      .category-box
+        .category-one.category-children
+          %h3 機種
+        .category-one
+          = @post.category.name
     .field
       .post-image
         = image_tag @post.image.url, width: "400px", hight: "400px" ,class:"image"

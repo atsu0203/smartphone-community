@@ -81,11 +81,8 @@ gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
 gem 'haml-rails'
-
 gem 'rails-i18n', '~> 5.1'
-
 gem 'ancestry'
-
 gem 'jquery-rails'
 
 group :production do

@@ -298,7 +298,11 @@ footer{
   .field{
     margin:10px auto;
     i{
+      
       font-size: 10px;
+    }
+    .exp{
+      padding-left: 20px;
     }
     .label{
       margin:10px auto;
@@ -317,8 +321,7 @@ footer{
       border-radius: 10px; 
       border: 1px solid #ccc;
     } 
-     i{
-      
+     .fas{
       position: relative;
       left:-20px;
       }
@@ -330,12 +333,51 @@ footer{
       height: 30px;
       bottom:30px;
     }
+      .category-box{
+        display:flex;
+        justify-content: start;
+        margin:20px;
+        h3{
+          font-weight: bold;
+        }
+      }
+      .category-one{
+        margin-left:40px;
+      } 
+      .category-children{
+          margin-left:60px; 
+        }
+      .image{
+        border-radius: 20px;
+        object-fit: cover;
+        width: 300px;
+        height: 300px;
 
+      }
+  
   }
 
   .content-one{
     .content-post{
     }
   }
+.circle-avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+#post_img_prev{
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+ .hidden{
+   display:none;
+ }
+ #error_explanation{
+   color: orange;
+ }
 }
 
