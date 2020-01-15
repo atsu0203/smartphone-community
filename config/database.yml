@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: smartphone-community_production
-  username: smartphone-community
-  password: <%= ENV['SMARTPHONE-COMMUNITY_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
