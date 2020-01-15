@@ -42,28 +42,32 @@
             タグはありません
         .users 
           %h3 投稿者
-          = image_tag @post.user.avatar.url, width: "150px", hight: "150px",class:"circle-avatar"
+          = image_tag @post.user.avatar.url, width: "150px", hight: "150px",class:"post-circle-avatar"
           %br
           = link_to  @post.user.nickname, "/users/#{@post.user.id}"
       
-    .like
-      .like-one
-        %h3
-          いいねの数: 
-          = @post.likes.count
-      .like-one
-        - if current_user.already_liked?(@post)
-          = button_to 'いいねを取り消す', post_like_path(@post), method: :delete,class: "btn-color"
-        - else
-          = button_to 'いいね', post_likes_path(@post),class: "btn-color"
-        %h3 いいねをしたユーザー
-      - if @post.liked_users.present?
-        - @post.liked_users.each do |user|
-          %li
-            = user.nickname
-          %br
-      - else
-        いいねした人はいません
+    .field
+      .like
+        .like-item
+          .like-one
+            %h3
+              いいね件数: 
+              = @post.likes.count
+          .like-one
+            - if current_user.already_liked?(@post)
+              = button_to 'いいねを取り消す', post_like_path(@post), method: :delete,class: "btn"
+            - else
+              = button_to 'いいね', post_likes_path(@post),class: "btn"
+        .like-item
+          .like-one
+            %h3 「いいね」ユーザー
+          .like-one
+          - if @post.liked_users.present?
+            - @post.liked_users.each do |user|
+              = user.nickname
+
+          - else
+            いいねした人はいません
 
     - if user_signed_in? && current_user.id == @post.user_id
       %ul.user-list
@@ -73,21 +77,24 @@
           = link_to '削除', "/posts/#{@post.id}", method: :delete, class:'btn'
       
   .container
-    - if current_user
-      = form_with(model: [@post, @comment], local: true, id: "new_comment") do |form|
-        = form.text_area :text, placeholder: "コメント内容", rows: "2",class: "textbox"
-        = form.submit "コメント", class: "btn-color"
-    - else
-      %strong
+    .field
+      - if current_user
+        = form_with(model: [@post, @comment], local: true, id: "new_comment") do |form|
+          = form.text_area :text, placeholder: "  コメント内容", rows: "2",class: "comment-form"
+          = form.submit "コメントする", class: "btn"
+      - else
+        %strong
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
     .comments
+      %br
       %h4 ＜コメント一覧＞
       - if @comments
         - @comments.each do |comment|
           .field
             %p
               %strong
-                = link_to comment.user.nickname, "/users/#{comment.user_id}"
+              = link_to comment.user.nickname, "/users/#{comment.user_id}"
+              &#058;
               = comment.text
 
 

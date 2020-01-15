@@ -294,6 +294,12 @@ footer{
   margin: 10px auto;
 }
 
+input, textarea,select{
+ &:focus{
+ outline:0;
+ }   
+}
+  
 
 .card{
   width: 50%;
@@ -419,6 +425,13 @@ footer{
   border-radius: 50%;
   object-fit: cover;
   }
+  .post-circle-avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    
+  }
   #post_img_prev{
   width: 300px;
   height: 300px;
@@ -431,12 +444,7 @@ footer{
  #error_explanation{
    color: orange;
   }
- .circle-avatar{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  }
+ 
  .like{
    display:flex;
    justify-content: center;
@@ -444,5 +452,16 @@ footer{
     margin: 10px;
     }
   }
+  .comment-form{
+    margin: 20px 100px;
+    width: 300px;
+    height: 100px;
+    border-color:#ccc;
+    border-radius: 20px;
+  }
 }
 
+.commnet{
+  display: flex;
+
+} 

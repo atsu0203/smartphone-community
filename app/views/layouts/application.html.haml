@@ -31,8 +31,6 @@
                     = link_to "#{current_user.nickname}の投稿", user_path(current_user.id)
                   %li
                     = link_to "プロフィール", edit_user_registration_path
-                  %li
-                    = link_to "使い方","#"
                 
               .postnav__item
                 .menu
@@ -54,7 +52,7 @@
             .usernav
               .usernav__item
                 = link_to "ログイン", new_user_session_path, class: 'btn'
-              .usernav__term
+              .usernav__item
                 = link_to "新規登録", new_user_registration_path, class: 'btn'
     .wrapper
       = yield
