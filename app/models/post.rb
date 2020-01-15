@@ -1,5 +1,8 @@
 class Post < ApplicationRecord
+  validates :name,length:{ maximum: 16 }, presence: true
   validates :text, presence: true
+  validates :image, presence: true
+
   belongs_to :user
   belongs_to :category
   has_many :comments 
