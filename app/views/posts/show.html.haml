@@ -4,58 +4,78 @@
       %h2
         = @post.name
     .field
-      .category-box
-        .category-one
-          %h3 シリーズ
-        .category-one
-          = @post.category.parent.name
-      .category-box
-        .category-one.category-children
-          %h3 機種
-        .category-one
-          = @post.category.name
+      .category
+        .category-box
+          .category-item
+            %h3 シリーズ
+          .category-item
+            %h3 機種
+        .category-box
+          .category-one   
+            = @post.category.parent.name
+          .category-one
+            = @post.category.name
     .field
       .post-image
         = image_tag @post.image.url, width: "400px", hight: "400px" ,class:"image"
     .field
+      .item-title
+        %h3 本文 
       .post-text
-        = simple_format(@post.text.gsub!(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/, ""))
-    - if @post.tags.any?
-      - @post.tags.each do |tag|
-        .tag
-          %p
-          \##{tag.name} 
-          
+        .post-text__text
+        - if @post.text.include?"#"
+          = simple_format(@post.text.gsub!(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/, ""))
+        - else
+          = simple_format(@post.text)
+
     .field
-      %span.name
-        %h3 投稿者
-        = link_to  @post.user.nickname, "/users/#{@post.user.id}"
-      -# = image_tag @post.user.avatar.url, width: "150px", hight: "150px" ,class:"avatar"
+      .tag-and-user
+        .tags
+          %h3 タグ
+        - if @post.tags.any?
+          - @post.tags.each do |tag|
+            .tag
+              %br
+              %p
+              \##{tag.name}
+        - else
+          タグはありません
+      .tag-and-user 
+        %span.name
+          %h3 投稿者
+          = image_tag @post.user.avatar.url, width: "150px", hight: "150px",class:"circle-avatar"
+          = link_to  @post.user.nickname, "/users/#{@post.user.id}"
+      
+    %h3.like
+      .like-one
+        いいねの数: 
+        = @post.likes.count
+      .like-one
+        - if current_user.already_liked?(@post)
+          = button_to 'いいねを取り消す', post_like_path(@post), method: :delete,class: "btn-color"
+        - else
+          = button_to 'いいね', post_likes_path(@post),class: "btn-color"
+          %h3 いいねをしたユーザー
+      - if @post.liked_users.present?
+        - @post.liked_users.each do |user|
+          %li
+            = user.nickname
+          %br
+      - else
+        いいねした人はいません
+
     - if user_signed_in? && current_user.id == @post.user_id
       %ul.user-list
         %li
           = link_to '編集', "/posts/#{@post.id}/edit", method: :get, class:'btn'
         %li
           = link_to '削除', "/posts/#{@post.id}", method: :delete, class:'btn'
-
-        %h1 投稿詳細ページ
-        %h3
-          いいね件数: 
-          = @post.likes.count
-          - if current_user.already_liked?(@post)
-            = button_to 'いいねを取り消す', post_like_path(@post), method: :delete
-          - else
-            = button_to 'いいね', post_likes_path(@post)
-          %h2 いいねしたユーザー
-          - @post.liked_users.each do |user|
-            %li
-              = user.nickname
-
+      
   .container
     - if current_user
       = form_with(model: [@post, @comment], local: true, id: "new_comment") do |form|
         = form.text_area :text, placeholder: "コメント内容", rows: "2",class: "textbox"
-        = form.submit "コメント", class: "form__submit"
+        = form.submit "コメント", class: "btn-color"
     - else
       %strong
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
@@ -68,8 +88,5 @@
               %strong
                 = link_to comment.user.nickname, "/users/#{comment.user_id}"
               = comment.text
-
-
-            -# %a{:style => "background-image: url(#{post.image});"}
 
 

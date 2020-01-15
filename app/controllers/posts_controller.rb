@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show]
   before_action :move_to_index, except: [:index, :show]
-  before_action :get_category_parent, only: [:new, :edit]
-  
+  before_action :get_category_parent, only: [:new, :edit, :create, :update]
+
   def index
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(6)
   end
@@ -12,8 +12,17 @@ class PostsController < ApplicationController
   end
 
   def create
-    @category = Category.find_by(name: params[:category_id])
-    Post.create(post_params)
+    if params[:post][:category] == "---" || params[:category] == "---"
+      flash[:danger] = 'シリーズと機種を入力してください'
+      redirect_to new_post_path
+    else
+      @category = Category.find_by(name: params[:category])
+      @post = Post.new(post_params)
+        if @post.save
+        else
+        render :new
+      end
+    end
   end 
 
   def destroy
@@ -44,7 +53,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:name, :image, :text, :tag_ids,:image_cache, :remove_image).merge(user_id: current_user.id, category_id: @category.id)
+    params.require(:post).permit(:name, :image, :text, :tag_ids).merge(user_id: current_user.id ,category_id: @category.id )
   end
 
   def set_post

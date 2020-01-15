@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load", function(){
+$( document ).on("turbolinks:load", function(){
 $(function(){ 
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
@@ -10,7 +10,7 @@ $(function(){
     var childSelectHtml = '';
     childSelectHtml = `<div class='listing-select__added' id= 'children_wrapper'>
                         <div class='listing-select__box'>
-                          <select class="listing-select__box--select" id="child_category" name="category_id">
+                          <select class="listing-select__box--select" id="child_category" name="category">
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
                           <select>
