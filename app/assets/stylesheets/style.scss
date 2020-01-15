@@ -425,6 +425,7 @@ input, textarea,select{
   border-radius: 50%;
   object-fit: cover;
   }
+
   .post-circle-avatar{
     width: 100px;
     height: 100px;
@@ -460,6 +461,14 @@ input, textarea,select{
     border-radius: 20px;
   }
 }
+
+  .post_present_img{
+  border-radius: 20px;
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
+}
+
 
 .commnet{
   display: flex;

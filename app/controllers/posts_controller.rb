@@ -35,7 +35,7 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
-    post.update(post_params)
+    post.update(post_params_update)
   end
 
   def show
@@ -54,6 +54,10 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:name, :image, :text, :tag_ids).merge(user_id: current_user.id ,category_id: @category.id )
+  end
+
+  def post_params_update
+    params.require(:post).permit(:name, :image, :text, :tag_ids).merge(user_id: current_user.id)
   end
 
   def set_post

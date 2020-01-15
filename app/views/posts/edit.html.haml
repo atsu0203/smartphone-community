@@ -1,6 +1,6 @@
 .card
   .content-one
     = form_with(model: @post, local: true) do |form|
-      %h3
+      %h2
         編集する
-      = render partial: "form", locals: { form: form }
+      = render partial: "form-edit", locals: { form: form }

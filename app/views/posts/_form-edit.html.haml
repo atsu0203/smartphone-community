@@ -9,16 +9,17 @@
   = form.text_field :name, placeholder: "   記事タイトル", class:"post-form"
 
 .field
-  .field__category
-    = form.label :category, class: 'listing-default__label'
-    %br/
-    %span.listing-default
-    .listing-select
-      .listing-select__box
-        = form.select :category, @category_parent_array, {}, {class: 'listing-select__box--select', id: 'parent_category'}
-        %i.fas.fa-chevron-down.listing-select__box--arrow-down
-        %br
-        %br
+  .category
+    .category-box
+      .category-item
+        %h3 シリーズ
+      .category-item
+        %h3 機種
+    .category-box
+      .category-one   
+        = @post.category.parent.name
+      .category-one
+        = @post.category.name
 
 .post-image
   %br
@@ -43,4 +44,4 @@
   %br
   %br
 .field
-  = form.submit "投稿する", class:"btn"
+  = form.submit "更新する", class:"btn"
