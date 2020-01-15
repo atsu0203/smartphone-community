@@ -371,7 +371,7 @@ footer{
     }
     .item-title{
       text-align: left;
-      margin-top:20px;
+      margin-top:15px;
       margin-left:130px;
     }
     .post-text{
@@ -390,6 +390,18 @@ footer{
       object-fit: cover;
       width: 350px;
       height: 350px;
+    }
+    .tag-and-user{
+      h3{
+      margin-bottom:10px;
+      }
+      width:80%;
+      margin:0 auto;
+      display:flex;
+      justify-content: space-around;
+      .users{
+        text-align: center;
+      }
     }
   }
 .content-one{

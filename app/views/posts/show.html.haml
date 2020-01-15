@@ -32,30 +32,31 @@
       .tag-and-user
         .tags
           %h3 タグ
-        - if @post.tags.any?
-          - @post.tags.each do |tag|
-            .tag
-              %br
-              %p
-              \##{tag.name}
-        - else
-          タグはありません
-      .tag-and-user 
-        %span.name
+          - if @post.tags.any?
+            - @post.tags.each do |tag|
+              .tag
+                %br
+                %p
+                \##{tag.name}
+          - else
+            タグはありません
+        .users 
           %h3 投稿者
           = image_tag @post.user.avatar.url, width: "150px", hight: "150px",class:"circle-avatar"
+          %br
           = link_to  @post.user.nickname, "/users/#{@post.user.id}"
       
-    %h3.like
+    .like
       .like-one
-        いいねの数: 
-        = @post.likes.count
+        %h3
+          いいねの数: 
+          = @post.likes.count
       .like-one
         - if current_user.already_liked?(@post)
           = button_to 'いいねを取り消す', post_like_path(@post), method: :delete,class: "btn-color"
         - else
           = button_to 'いいね', post_likes_path(@post),class: "btn-color"
-          %h3 いいねをしたユーザー
+        %h3 いいねをしたユーザー
       - if @post.liked_users.present?
         - @post.liked_users.each do |user|
           %li
