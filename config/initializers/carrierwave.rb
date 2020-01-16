@@ -19,3 +19,15 @@ CarrierWave.configure do |config|
     config.enable_processing = false if Rails.env.test? #test:処理をスキップ
   end
 end
+
+module CarrierWave
+  module MiniMagick
+    def fix_exif_rotation
+      manipulate! do |img|
+        img.auto_orient
+        img = yield(img) if block_given?
+        img
+      end
+    end
+  end
+end

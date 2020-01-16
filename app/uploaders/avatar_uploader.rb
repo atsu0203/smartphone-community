@@ -3,6 +3,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   process resize_to_fit: [300, 300]
+  process :fix_exif_rotation
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.development? || Rails.env.test? 
