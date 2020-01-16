@@ -53,11 +53,18 @@
             %h3
               いいね件数: 
               = @post.likes.count
-          .like-one
-            - if current_user.already_liked?(@post)
-              = button_to 'いいねを取り消す', post_like_path(@post), method: :delete,class: "btn"
-            - else
-              = button_to 'いいね', post_likes_path(@post),class: "btn"
+          - if current_user    
+            .like-one
+              - if current_user.already_liked?(@post)
+                = button_to 'いいねを取り消す', post_like_path(@post), method: :delete,class: "btn"
+              - else
+                = button_to 'いいね', post_likes_path(@post),class: "btn"
+          - else
+            %strong
+            %p.login-notice__like
+              「いいね」するには
+              %br ログインが必要です
+
         .like-item
           .like-one
             %h3 「いいね」ユーザー
@@ -67,7 +74,7 @@
               = user.nickname
 
           - else
-            いいねした人はいません
+            まだいません
 
     - if user_signed_in? && current_user.id == @post.user_id
       %ul.user-list
@@ -84,7 +91,7 @@
           = form.submit "コメントする", class: "btn"
       - else
         %strong
-        %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+        %p.login-notice  コメントの投稿には新規登録/ログインが必要です 
     .comments
       %br
       %h4 ＜コメント一覧＞

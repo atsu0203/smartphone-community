@@ -474,3 +474,9 @@ input, textarea,select{
   display: flex;
 
 } 
+.login-notice{
+  font-family: "851テガキカクット";
+  &__like{
+  font-size: 10px;
+  }
+}
