@@ -14,10 +14,10 @@
           = link_to "みんなのスマホ", root_path 
         %h2.title__sub
           = link_to "いろんなスマホの情報を共有しよう", root_path 
-      - if user_signed_in?
-        .bg-mask
-          .navbar
-            .postnav
+      .bg-mask
+        .navbar
+          .postnav
+            - if user_signed_in?
               .postnav__item
                 .menu
                   メニュー
@@ -32,25 +32,21 @@
                     = link_to "#{current_user.nickname}の投稿", user_path(current_user.id)
                   %li
                     = link_to "プロフィール", edit_user_registration_path
-                
-              .postnav__item
-                .menu
-                  シリーズ
-                %ul
-                  %li.bold
-                    シリーズ
-                  - @parents.each do |parent|
-                    %li
-                      = link_to "#{parent.name}", category_path(parent), class: "parent_category",id: "#{parent.id}"
 
-            .usernav
+            .postnav__item
+              .menu
+                シリーズ
+              %ul
+                %li.bold
+                  シリーズ
+                - @parents.each do |parent|
+                  %li
+                    = link_to "#{parent.name}", category_path(parent), class: "parent_category",id: "#{parent.id}"
+          .usernav
+            - if user_signed_in?
               .usernav__item
                 = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
-      - else
-        .bg-mask
-          .navbar
-            .postnav
-            .usernav
+            - else
               .usernav__item
                 = link_to "ログイン", new_user_session_path, class: 'btn'
               .usernav__item

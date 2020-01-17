@@ -363,15 +363,15 @@ input, textarea,select{
     }
     .category{
       display:flex;
-      justify-content: start;
+      justify-content: space-around;
       margin:20px;
       .category-box{
-        margin-left:40px;
+        margin-left:10px;
         .category-one{
-          margin-left:40px;
+          margin-left:10px;
         }
         .category-item{
-          margin-left:40px;
+          margin-left:10px;
         }
       } 
     }
@@ -487,3 +487,237 @@ input, textarea,select{
   opacity: 0.1;
 
 }
+
+@media screen and (max-width: 480px) { 
+  .card{
+    width:65%;
+    h3{
+      font-weight: bold;
+    }
+    #post_text{
+      width: 200px;
+      height: 150px;
+    }
+    h2{
+      font-size: 26px;
+      font-family: "851テガキカクット";
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    .alert{
+      color: orange;
+      }
+    .field{
+      margin:10px auto;
+      i{   
+        font-size: 10px;
+      }
+      .exp{
+        padding-left: 20px;
+      }
+      .label{
+        margin:10px auto;
+      }
+      .user-form{
+        width:200px;
+        height: 30px;
+        margin:10px auto;
+        border-radius: 10px; 
+        border: 1px solid #ccc;
+      }
+      .post-form{
+        width:200px;
+        height: 30px;
+        margin:10px auto;
+        border-radius: 10px; 
+        border: 1px solid #ccc;
+      } 
+      .fas{
+        position: relative;
+        left:-20px;
+        }
+      select{
+        margin-left:14px;
+        appearance: none;
+        padding-left:10px;
+        width:200px;
+        height: 30px;
+        bottom:30px;
+      }
+      .category{
+        display:flex;
+        justify-content: start;
+        margin:20px;
+        .category-box{
+          margin-left:10px;
+          .category-one{
+            margin-left:10px;
+          }
+          .category-item{
+            margin-left:10px;
+          }
+        } 
+      }
+      .item-title{
+        text-align: left;
+        margin-top:15px;
+        margin-left:130px;
+      }
+      .post-text{
+        width:200px;
+        }
+      .image{
+        width: 200px;
+        height: 200px;
+      }
+      .tag-and-user{
+        h3{
+        margin-bottom:10px;
+        }
+        width:80%;
+        margin:0 auto;
+        display:flex;
+        justify-content: space-around;
+        .users{
+          text-align: center;
+        }
+      }
+    }
+
+  .content-one{
+    .user-list{
+      justify-content: center;
+      display:flex;
+      .btn{
+        margin:20px;
+        }
+      }
+    }
+    .circle-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    }
+    .post-circle-avatar{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  
+    #post_img_prev{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    }
+   .hidden{
+     display:none;
+    }
+   #error_explanation{
+     color: orange;
+    }
+   
+   .like{
+     display:flex;
+     justify-content: center;
+     .like-one{
+      margin: 10px;
+      }
+    }
+    .comment-form{
+      margin: 20px;
+      width: 200px;
+      height: 100px;
+      border-color:#ccc;
+      border-radius: 20px;
+    }
+  }
+  
+    .post_present_img{
+    border-radius: 20px;
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+  }
+  
+  
+  .commnet{
+    display: flex;
+  
+  } 
+  .login-notice{
+    font-family: "851テガキカクット";
+    &__like{
+    font-size: 10px;
+    }
+  }
+  .no_avater{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0.1;
+  }
+  }
+
+  .header{
+  .navbar{
+  margin:0 auto;
+  height:50px;
+  display:flex;
+  justify-content: space-between;
+  .postnav{
+    z-index: 10;
+    display:flex;
+      &__item{
+        padding:0;
+        background-color: $white;
+        display:block;
+        .menu{
+          font-size:13px;
+          display: block;
+          margin: 0px auto;
+          text-align: center;
+          padding:10px;
+          width: 90px;
+          line-height: 30px;
+          background-color: white;  
+        }
+        ul{
+          li{
+            display:none;
+            visibility: hidden;
+            transition: .5s;
+          }
+        }
+        &:hover{ 
+          .menu{
+            display:none;
+            visibility: hidden;
+            }
+          ul{
+            li{
+              visibility:visible;
+              display: block;
+              margin: 0px auto;
+              text-align: center;
+              font-size:13px;
+              padding:10px;
+              width: 90px;
+              line-height: 30px;
+              background-color: white; 
+
+            }
+              
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+ 
