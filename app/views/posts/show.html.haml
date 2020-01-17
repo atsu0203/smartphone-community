@@ -40,9 +40,12 @@
                 \##{tag.name}
           - else
             タグはありません
-        .users 
+        .users
           %h3 投稿者
-          = image_tag @post.user.avatar.url, width: "150px", hight: "150px",class:"post-circle-avatar"
+          - if @post.user.avatar.url 
+            = image_tag @post.user.avatar.url, width: "150px", hight: "150px",class:"post-circle-avatar"
+          - else
+            = image_tag 'no_avatar.png', class: 'no_avater'
           %br
           = link_to  @post.user.nickname, "/users/#{@post.user.id}"
       
