@@ -43,7 +43,7 @@
         .users
           %h3 投稿者
           - if @post.user.avatar.url 
-            = image_tag @post.user.avatar.url, width: "150px", hight: "150px",class:"post-circle-avatar"
+            = image_tag @post.user.avatar.url, width: "150px", hight: "150px",class:"avatar_present_img"
           - else
             = image_tag 'no_avatar.png', class: 'no_avater'
           %br
@@ -79,12 +79,12 @@
           - else
             まだいません
 
-    - if user_signed_in? && current_user.id == @post.user_id
-      %ul.user-list
-        %li
-          = link_to '編集', "/posts/#{@post.id}/edit", method: :get, class:'btn'
-        %li
-          = link_to '削除', "/posts/#{@post.id}", method: :delete, class:'btn'
+      - if user_signed_in? && current_user.id == @post.user_id
+        %ul.user-list
+          %li
+            = link_to '編集', "/posts/#{@post.id}/edit", method: :get, class:'btn'
+          %li
+            = link_to '削除', "/posts/#{@post.id}", method: :delete, class:'btn'
       
   .container
     .field

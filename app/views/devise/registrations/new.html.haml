@@ -8,21 +8,21 @@
         %br
         %i.exp (最大6文字まで)
         %br
-        = f.text_field :nickname, autofocus: true, maxlength: "6",class:"user-form"
+        = f.text_field :nickname, autofocus: true, maxlength: "6",class:"form"
       .field
         = f.label :email
         %br/
-        = f.email_field :email,class:"user-form"
+        = f.email_field :email,class:"form"
       .field
         = f.label :password
         - if @validatable
           %i.exp (#{@minimum_password_length} characters minimum)
         %br/
-        = f.password_field :password, autocomplete: "off",class:"user-form"
+        = f.password_field :password, autocomplete: "off",class:"form"
       .field
         = f.label :password_confirmation
         %br/
-        = f.password_field :password_confirmation, autocomplete: "off" ,class:"user-form"
+        = f.password_field :password_confirmation, autocomplete: "off" ,class:"form"
       .field
         = f.label :avatar
       .circle-avatar
@@ -35,7 +35,7 @@
           = f.hidden_field :avatar_cache
           %br
         .field
-          = f.file_field :avatar, id: 'post_img',class:"user-form"
+          = f.file_field :avatar, id: 'post_img',class:"form"
 
       .actions
         %br

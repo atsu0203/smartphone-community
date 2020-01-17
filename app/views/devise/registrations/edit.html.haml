@@ -8,11 +8,11 @@
         %br
         %i (最大6文字まで)
         %br
-        = f.text_field :nickname, autofocus: true, maxlength: "6",class:"user-form"
+        = f.text_field :nickname, autofocus: true, maxlength: "6",class:"form"
       .field
         = f.label :email
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email" , class:"user-form"
+        = f.email_field :email, autofocus: true, autocomplete: "email" , class:"form"
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
         %div
           Currently waiting confirmation for: #{resource.unconfirmed_email}
@@ -24,18 +24,18 @@
         %i 空欄であれば、パスワードは変更されません
 
         %br/
-        = f.password_field :password, autocomplete: "new-password", class:"user-form"
+        = f.password_field :password, autocomplete: "new-password", class:"form"
 
       .field
         = f.label :password_confirmation
         %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password", class:"user-form"
+        = f.password_field :password_confirmation, autocomplete: "new-password", class:"form"
       .field
         = f.label "現在のパスワード(必須)"
         %br/
         %i 変更するためには、現在のパスワード確認が必要です
         %br/
-        = f.password_field :current_password, autocomplete: "current-password", class:"user-form"
+        = f.password_field :current_password, autocomplete: "current-password", class:"form"
       .circle-avatar
         %img#avatar_img_prev.hidden{:src => "#"}/
         - if current_user && current_user.avatar?
@@ -45,7 +45,7 @@
           = f.hidden_field :avatar_cache
           %br
       .field
-        = f.file_field :avatar, id: 'post_img',class:"user-form"
+        = f.file_field :avatar, id: 'post_img',class:"form"
 
       .actions
       %br

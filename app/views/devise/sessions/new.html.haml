@@ -5,11 +5,11 @@
       .field
         = f.label :email
         %br/
-        = f.email_field :email, autofocus: true, class:"user-form"
+        = f.email_field :email, autofocus: true, class:"form"
       .field 
         = f.label :password
         %br/
-        = f.password_field :password, autocomplete: "off", class:"user-form"
+        = f.password_field :password, autocomplete: "off", class:"form"
       - if devise_mapping.rememberable?
         .field
           = f.label :パスワードを記憶させる
