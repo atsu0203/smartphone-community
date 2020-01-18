@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :likes, source: :post
   has_many :comments
 
+  validates :nickname, presence: true, length: { maximum: 6 }
+
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
