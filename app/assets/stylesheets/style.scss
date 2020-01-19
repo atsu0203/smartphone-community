@@ -204,9 +204,9 @@ input, textarea,select{
     }
   .contents{
     margin:10px auto;
-    max-width:1000px;
+    max-width:960px;
     display:flex;
-    justify-content: center;
+    justify-content: start;
     flex-wrap: wrap;
     &_user{
       width:100%;
@@ -321,6 +321,14 @@ input, textarea,select{
       border: 1px solid #ccc;
       padding:5px 20px;
     }
+    .text_area{
+      width:200px;
+      height: 100px;
+      margin:10px auto;
+      border-radius: 10px; 
+      border: 1px solid #ccc;
+      padding:5px 20px;
+    }
     .post_present_img{
       border-radius: 20px;
       object-fit: cover;
@@ -426,6 +434,16 @@ input, textarea,select{
     border-radius: 50%;
     object-fit: cover;
   }
+  #post_img_prev{
+    border-radius: 20px;
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+    @media (max-width:750px) {
+      width:250px;
+      height:250px;
+    }
+  }
 }
 
 footer{
@@ -457,6 +475,11 @@ footer{
           }
         }
       }
+    }
+  }
+  .wrapper{
+    .contents{
+      justify-content: center;
     }
   }
   .card{
