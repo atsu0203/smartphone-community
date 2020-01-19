@@ -19,10 +19,10 @@
           .postnav
             - if user_signed_in?
               .postnav__item
-                .menu
+                .menu#menu_hover_down
                   メニュー
                 %ul
-                  %li.bold
+                  %li.bold#menu_hover_down
                     メニュー
                   %li
                     = link_to "投稿する", new_post_path
