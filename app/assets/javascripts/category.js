@@ -10,6 +10,7 @@ $(function(){
     var childSelectHtml = '';
     childSelectHtml = `<div class='listing-select__added' id= 'children_wrapper'>
                         <div class='listing-select__box'>
+                          機種<br>
                           <select class="listing-select__box--select" id="child_category" name="category">
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
