@@ -42,8 +42,9 @@
             タグはありません
         .users
           %h3 投稿者
-          - if @post.user.avatar.url 
-            = image_tag @post.user.avatar.url, width: "150px", hight: "150px",class:"avatar_present_img"
+          - if @post.user.avatar.url
+            = link_to  "/users/#{@post.user.id}" do
+              = image_tag @post.user.avatar.url, width: "150px", hight: "150px",class:"avatar_present_img"
           - else
             = image_tag 'no_avatar.png', class: 'no_avater'
           %br
@@ -77,7 +78,8 @@
               = user.nickname
 
           - else
-            まだいません
+            .like-no
+              まだいません
 
       - if user_signed_in? && current_user.id == @post.user_id
         %ul.user-list

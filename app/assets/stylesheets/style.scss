@@ -510,10 +510,23 @@ footer{
         width: 200px;
         height: 200px;
       }
+      .item-title{
+        text-align: left;
+        margin-top:15px;
+        margin-left:30px;
+      }
       .tag-and-user{
-        font-size: 12px;
+        font-size: 10px;
         h3{
           font-size:16px;
+        }
+      }
+      .like{
+        .like-one{
+        font-size: 12px;
+        }
+        .like-no{
+          font-size: 12px;
         }
       }
       .comment-form{
@@ -522,6 +535,19 @@ footer{
       .login-notice{
         text-align: left;
       }
+      .no_avater{
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        opacity: 0.1;
+      }
+    }
+    .avatar_present_img{
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
     }
   }
 }
