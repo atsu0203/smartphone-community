@@ -1,6 +1,6 @@
 .search
   = form_with(url: posts_searches_path, local: true, method: :get, class: "search") do |f|
-    = f.text_field :keyword, placeholder: "  投稿を検索する", class: "search__input"
+    = f.text_field :keyword, placeholder: "投稿を検索する", class: "search__input"
     .search__btn
       %i.fa.fa-search.search__btn__icon
       = f.submit "", class: "search__btn__link"

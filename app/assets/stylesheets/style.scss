@@ -79,6 +79,7 @@ input, textarea,select{
 .header{
   background-image: url(/images/phone_image.jpg);
   background-size: cover; 
+
   .title{
     a{
       color:$black;
@@ -169,7 +170,8 @@ input, textarea,select{
   .search{
     width:100%;
     &__input{
-      width:90%;
+      width:86%;
+      padding: 0 20px;
       margin:5px auto;
       height:40px;
       border-radius: 10px;
@@ -210,6 +212,9 @@ input, textarea,select{
     flex-wrap: wrap;
     &_user{
       width:100%;
+    }
+    .success{
+      text-align: center;
     }
     .content-post{
       position: relative;
@@ -435,6 +440,16 @@ input, textarea,select{
     object-fit: cover;
   }
   #post_img_prev{
+    border-radius: 20px;
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+    @media (max-width:750px) {
+      width:250px;
+      height:250px;
+    }
+  }
+  .post_present_img{
     border-radius: 20px;
     object-fit: cover;
     width: 300px;
