@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use mysql as the database for Active Record
@@ -85,8 +84,6 @@ gem 'materialize-sass'
 gem 'material_icons'
 
 gem 'font-awesome-sass'
-
-
 gem 'haml-rails'
 gem 'rails-i18n', '~> 5.1'
 gem 'ancestry'
