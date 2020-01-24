@@ -86,9 +86,6 @@ gem 'material_icons'
 
 gem 'font-awesome-sass'
 
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-google-oauth2'
 
 gem 'haml-rails'
 gem 'rails-i18n', '~> 5.1'
