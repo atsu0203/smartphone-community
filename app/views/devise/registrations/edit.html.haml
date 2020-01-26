@@ -1,4 +1,6 @@
 .card
+  - unless @user.email == "guest@example.com"
+    = link_to "edit",edit_user_registration_path
   .devise
     %h2 プロフィール変更
     = form_with model: @user, url: user_registration_path, id: 'edit_user', class: 'edit_user', local: true do |f|
