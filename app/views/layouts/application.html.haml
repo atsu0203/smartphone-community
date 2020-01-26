@@ -48,6 +48,13 @@
                 = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
             - else
               .usernav__item
+                = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+                  .field
+                    =f.hidden_field :email ,value: "guest@example.com"
+                    =f.hidden_field :password ,value: "guest1234"
+                  .actions
+                    = f.submit "ゲストとしてログイン", class:"btn"
+              .usernav__item
                 = link_to "ログイン", new_user_session_path, class: 'btn'
               .usernav__item
                 = link_to "新規登録", new_user_registration_path, class: 'btn'
