@@ -17,9 +17,11 @@
           = f.check_box :remember_me, class:"user-form"
       .actions
         = f.submit "ログイン", class:"btn"
+      .field
+        ゲストとしてログインする（閲覧用）  
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
           =f.hidden_field :email ,value: "guest@example.com"
           =f.hidden_field :password ,value: "guest1234"
         .actions
-          = f.submit "ゲストとしてログイン", class:"btn"
+          = f.submit "ゲストログイン", class:"btn"
