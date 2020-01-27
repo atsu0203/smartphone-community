@@ -1,9 +1,9 @@
-before_action :forbid_test_user, {only: [:edit,:update,:destroy]}
+class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :check_guest, {only: [:edit,:update,:destroy]}
 
-  private
-  def forbid_test_user
-      if @user.email == "guest@example.com"
-        flash[:notice] = "テストユーザーのため変更できません"
-        redirect_to root_path
-      end
+  def check_guest
+    if resource.email == 'guest@example.com'
+      redirect_to root_path
+    end
   end
+end
