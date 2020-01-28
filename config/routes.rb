@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
   root to: 'posts#index'
   resources :categories, only: :show 
+
+  resources :groups do
+    resources :messages
 end
