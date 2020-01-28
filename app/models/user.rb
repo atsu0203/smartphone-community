@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 #  has_many :liked_posts, through: :likes, source: :post
   has_many :comments
+  has_many :group_users
+  has_many :groups, through: :group_users
 
   validates :nickname, presence: true, length: { maximum: 8 }
 
