@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :group_users
   has_many :groups, through: :group_users
-
+  has_many :messages
   validates :nickname, presence: true, length: { maximum: 8 }
 
   def already_liked?(post)
