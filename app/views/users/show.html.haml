@@ -1,4 +1,14 @@
 .contents
+  %ul.user_show__left__link
+    %li.user_show__left__link__list
+      - unless current_user == @user
+        -if @ture_user_msg.present?
+          = link_to "メッセージ送る",group_messages_path(@ture_user_msg), class:"btn-social-square4 btn-social-square--twitter4"
+        -else
+          = form_with model: @group, local: true  do |f|
+            %input{name: "group[user_ids][]", type: "hidden", value: "#{@user.id}"}/
+            = f.hidden_field :name, value: "#{current_user.nickname}"
+            = f.submit "メッセージ送る", class: "btn-social-square btn-social-square--twitter"
   %p.contents_user
     = @nickname
     さんの投稿一覧
