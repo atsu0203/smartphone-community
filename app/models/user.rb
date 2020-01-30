@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
+
+  # has_one_attached :avatar
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,:validatable
