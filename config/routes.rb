@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: :create
   end
-  resources :users, only: :show
+  resources :users
   root to: 'posts#index'
   resources :categories, only: :show 
 
