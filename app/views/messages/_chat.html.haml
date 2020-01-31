@@ -1,5 +1,11 @@
-.messages
-  = render @messages
+- if @messages.exists?
+  .messages
+    = render @messages
+- else
+  .messages
+    まだ、メッセージはありません
+  %br
+  %br
 
 .form
   = form_for [@group, @message] do |f|
