@@ -461,6 +461,18 @@ input, textarea,select{
   }
 }
 
+.chat_all__space__lists__li{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.new_message{
+  display: flex;
+  justify-content: center;
+}
+
+
 .line-bc {
   padding: 20px 10px;
   max-width: 450px;
