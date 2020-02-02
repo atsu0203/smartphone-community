@@ -8,7 +8,7 @@
         - @talk_user.each do |u|
           = link_to group_messages_path(u.groups.find_by(id: current_user.groups.ids)),class:"chat_all__space__lists__li"  do
             %li.chat_all__space__lists__li__avatar
-              = image_tag u.avatar.url,style: "width: 60px;height:60px;border-radius:50%;box-shadow:rgba(0, 0, 0, 0.3)0px 0px 2px 2px;"
+              = image_tag u.avatar.url,style: "width: 60px;height:60px;border-radius:50%;box-shadow:rgba(0, 0, 0, 0.3);"
             %li.chat_all__space__lists__li__nickname
               = "#{u.nickname}"
             %li.chat_all__space__lists__li__last_message
