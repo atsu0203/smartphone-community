@@ -1,11 +1,16 @@
-.message
-  .upper-message
-    .upper-message__user-name
-      = message.user.nickname
-    .upper-message__date
-      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-  .lower-message
-    - if message.content.present?
-      %p.lower-message__content
-        = message.content
-    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+- if message.user == current_user
+  .message
+    .message-user
+      .message-user__avatar
+        = image_tag message.user.avatar.url,style: "width: 60px;height:60px;border-radius:50%;box-shadow:rgba(0, 0, 0, 0.3);"
+      .message-user__name  
+        = message.user.nickname
+    .message-main 
+      .message-contents
+        - if message.content.present?
+          %p.message__content
+            = message.content
+        = image_tag message.image.url, class: 'message__image' if message.image.present?
+      .message-date
+        = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
