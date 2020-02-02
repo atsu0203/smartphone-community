@@ -4,10 +4,9 @@
 - else
   .messages
     まだ、メッセージはありません
-  %br
-  %br
-
-.form
+%br
+%br
+.form-talk
   = form_for [@group, @message] do |f|
     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
     .form__mask
