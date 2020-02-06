@@ -1,12 +1,28 @@
 
 - if message.user == current_user
+  .message-c
+    .message-c-main 
+      .message-c-contents
+        - if message.content.present?
+          %p.message-c__content
+            = message.content
+        = image_tag message.image.url, class: 'message__image' if message.image.present?
+      .message-c-date
+        = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+    .message-c-user
+      .message-c-user__avatar
+        = image_tag message.user.avatar.url,style: "width: 60px;height:60px;border-radius:50%;box-shadow:rgba(0, 0, 0, 0.3);"
+      .message-c-user__name  
+        = message.user.nickname
+
+- else
   .message
     .message-user
       .message-user__avatar
         = image_tag message.user.avatar.url,style: "width: 60px;height:60px;border-radius:50%;box-shadow:rgba(0, 0, 0, 0.3);"
       .message-user__name  
         = message.user.nickname
-    .message-main 
+    .message-main
       .message-contents
         - if message.content.present?
           %p.message__content

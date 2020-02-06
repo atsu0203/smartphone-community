@@ -467,29 +467,81 @@ input, textarea,select{
   justify-content: space-around;
 }
 
+
+
 .new_message{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+.form__mask{
+  margin: auto 10px;
+}
+
+.form__mask__image{
+  font-size: 25px;  
+  margin-top:10px;
 }
 .form__message{
   padding:10px;
   border: solid 1px gray;
   border-radius: 10px;
+  margin: 10px;
 }
-
 .form__submit{
+  padding: 10px;
   border: solid 1px gray;
   border-radius: 10px;
   background-color: white;
   color: gray;
+  margin: 10px;
 }
+
+
+.message-c{
+  display: flex;
+  justify-content: flex-end;
+}
+.message-c-user__name{
+  font-size: 12px;
+}
+.message-c__image{
+  width:200px;
+}
+.message-c-contents {
+  display: inline-block;
+  position: relative; 
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #edf1ee;
+  font-size: 15px;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 3px; 
+    right: -19px;
+    border: 8px solid transparent;
+    border-left: 18px solid #edf1ee;
+    -webkit-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+  }
+}
+.message-c-date{
+  font-size:10px;
+  margin-left:40px;
+}
+
+
 .message{
   display: flex;
 }
-.message__image{
-  width:200px;
+.message-user__name{
+  font-size: 12px;
 }
-
+.message__image{
+  max-width:200px;
+}
 .message-contents {
   display: inline-block;
   position: relative; 
@@ -510,11 +562,12 @@ input, textarea,select{
     transform: rotate(35deg);
   }
 }
-
 .message-date{
   font-size:10px;
   margin-left:40px;
 }
+
+
 
 /*以下、②左側のコメント*/
 .balloon6 {
