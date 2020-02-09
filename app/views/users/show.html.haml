@@ -11,7 +11,7 @@
             -else
               = form_with model: @group, local: true  do |f|
                 %input{name: "group[user_ids][]", type: "hidden", value: "#{@user.id}"}/
-                = f.hidden_field :name, value: "#{@nickname}"
+                = f.hidden_field :name, value: "#{@nickname}と#{current_user.nickname}"
                 = f.submit "メッセージ送る", class: "btn-social-square btn-social-square--twitter"
 .contents
   %p.contents_user
