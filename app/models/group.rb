@@ -16,15 +16,11 @@ class Group < ApplicationRecord
     end
   end
 
-  def show_last_message
+  def show_last_created_at
     if (last_message = messages.last).present?
-      if last_message.content?
-        last_message.content
-      else
-        '画像が投稿されています'
-      end
+      last_message.created_at
     else
-      'まだメッセージはありません。'
+      ''
     end
   end
 
