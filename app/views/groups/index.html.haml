@@ -8,15 +8,19 @@
         - @talk_user.each do |u|
           = link_to group_messages_path(u.groups.find_by(id: current_user.groups.ids)),class:"chat_all__space__lists__li"  do
             %li.chat_all__space__lists__li__avatar
-              = image_tag u.avatar.url,style: "width: 60px;height:60px;border-radius:50%;box-shadow:rgba(0, 0, 0, 0.3);"
-            %li.chat_all__space__lists__li__nickname
-              = "#{u.nickname}"
-            %li.chat_all__space__lists__li__last_message
-              = u.groups.find_by(id: current_user.groups.ids).show_last_message
-            -# -check_box= (user.groups.find_by(id: current_user.groups.ids)).messages.where(checked: false).where.not(user_id: current_user.id)
-            -# -if check_box.any?
-            -#   %li.root_page__left__group__users__link__check_box2{style:"margin-top:10px;"}
-            -#     = check_box.count
+              - if u.avatar.presence
+                = image_tag u.avatar.url,style: "width: 60px;height:60px;border-radius:50%;box-shadow:rgba(0, 0, 0, 0.3);"
+              - else
+                = image_tag 'no_avatar.png',style: "width: 60px;height:60px;border-radius:50%;opacity: 0.1;box-shadow:rgba(0, 0, 0, 0.3);"
+            %li.chat_all__space__lists__li__right
+              .chat_all__space__lists__li__right__nickname
+                = "#{u.nickname}"
+              .chat_all__space__lists__li__right__last
+                .chat_all__space__lists__li__right__last__message
+                  = u.groups.find_by(id: current_user.groups.ids).show_last_message
+                .chat_all__space__lists__li__right__last__time
+                  = time_ago_in_words(u.groups.find_by(id: current_user.groups.ids).created_at) + "前"
+              
         - unless @talk_user.include?(@talk_user_last)
           .page-load-status
             .infinite-scroll-request
