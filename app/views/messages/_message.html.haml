@@ -11,9 +11,13 @@
         = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
     .message-c-user
       .message-c-user__avatar
-        = image_tag message.user.avatar.url,style: "width: 60px;height:60px;border-radius:50%;box-shadow:rgba(0, 0, 0, 0.3);"
+        - if message.user.avatar.presence
+          = image_tag message.user.avatar.url,style: "width: 60px;height:60px;border-radius:50%;box-shadow:rgba(0, 0, 0, 0.3);"
+        - else
+          = image_tag "no_avatar.png", style: "width: 60px;height:60px;opacity: 0.1;border-radius:50%;box-shadow:rgba(0, 0, 0, 0.3);"
       .message-c-user__name  
         = message.user.nickname
+
 
 - else
   .message
