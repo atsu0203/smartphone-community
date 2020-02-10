@@ -1,7 +1,9 @@
 .card
   .content-one
     .field
-      %h2
-        = @groupname
+      - @groupusers.each do |u|
+        - if u != current_user
+          %h2
+            = u.nickname
 
     = render "chat"
