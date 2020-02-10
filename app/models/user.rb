@@ -18,4 +18,7 @@ class User < ApplicationRecord
     self.likes.exists?(post_id: post.id)
   end
 
+  def self.guest
+    find_by(email: 'guest@example.com') 
+  end
 end
