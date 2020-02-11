@@ -19,8 +19,6 @@ class Group < ApplicationRecord
   def show_last_created_at
     if (last_message = messages.last).present?
       last_message.created_at
-    else
-      ''
     end
   end
 
