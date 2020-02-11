@@ -6,8 +6,8 @@
       %ul.user_show__left__link
         %li.user_show__left__link__list
           - unless current_user == @user
-            -if @ture_user_msg.present?
-              = link_to "メッセージ送る",group_messages_path(@ture_user_msg), class:"btn-social-square4 btn-social-square--twitter4"
+            -if @true_user_msg.present?
+              = link_to "メッセージ送る",group_messages_path(@true_user_msg.id), class:"btn-social-square4 btn-social-square--twitter4"
             -else
               = form_with model: @group, local: true  do |f|
                 %input{name: "group[user_ids][]", type: "hidden", value: "#{@user.id}"}/
