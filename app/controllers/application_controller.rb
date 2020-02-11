@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def talk_user
-    # @post_date_relationship = Relationship.where(follow_id: current_user.id)
+    @post_date_relationship = Relationship.where(follow_id: current_user.id)
     @post_date_likes =  Like.where(post_id: current_user.post_ids)
     @post_date_comment = Comment.where(post_id: current_user.post_ids)
     @post = Post.new
