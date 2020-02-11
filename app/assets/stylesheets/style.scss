@@ -126,10 +126,10 @@ input, textarea,select{
             background-color: white;  
           }
           ul{
+            
             li{
               display:none;
               visibility: hidden;
-              transition: .5s;
             }
           }
           &:hover{ 

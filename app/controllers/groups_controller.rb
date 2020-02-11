@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
 
   def index
     @talk_user_last =  @talk_user.last
-    @talk_user = @talk_user.page(params[:page]).per(10)
+    @talk_user = @talk_user.page(params[:page]).per(6)
   end
 
   def create
