@@ -19,7 +19,8 @@
                 .chat_all__space__lists__li__right__last__message
                   = u.groups.find_by(id: current_user.groups.ids).show_last_message
                 .chat_all__space__lists__li__right__last__time
-                  = time_ago_in_words(u.groups.find_by(id: current_user.groups.ids).show_last_created_at) + "前"
+                  - if u.groups.find_by(id: current_user.groups.ids).show_last_created_at.presence
+                    = time_ago_in_words(u.groups.find_by(id: current_user.groups.ids).show_last_created_at) + "前"
         - unless @talk_user.include?(@talk_user_last)
           .page-load-status
             .infinite-scroll-request
